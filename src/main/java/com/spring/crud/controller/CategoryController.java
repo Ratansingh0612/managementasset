@@ -28,7 +28,7 @@ public class CategoryController {
 	
 	@GetMapping("/start")
 	public String start() {
-		return "everything is okk for Student";
+		return "everything is okk for category";
 		
 	}
 	

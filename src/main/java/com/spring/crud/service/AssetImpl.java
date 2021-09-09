@@ -10,7 +10,7 @@ import com.spring.crud.dao.AssetRepo;
 import com.spring.crud.entity.Asset;
 
 @Service
-public class TeacherImpl implements AssetService {
+public class AssetImpl implements AssetService {
 	
 	@Autowired private AssetRepo assetRepo;
 
@@ -33,10 +33,5 @@ public class TeacherImpl implements AssetService {
 	}
 
 
-	/*
-	 * @Override public TeacherData save(SubjectData subName) {
-	 * 
-	 * return teacherRepo.save(subName); }
-	 */
-
+	
 }
