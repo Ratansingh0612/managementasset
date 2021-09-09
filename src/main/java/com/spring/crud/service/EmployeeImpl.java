@@ -5,37 +5,39 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spring.crud.dao.SubjectRepo;
-import com.spring.crud.entity.SubjectData;
+import com.spring.crud.dao.EmployeeRepo;
+
+import com.spring.crud.entity.Employee;
+
 @Service
-public class SubjectImpl implements Subject {
+public class EmployeeImpl implements EmployeeService {
 	
-	@Autowired private SubjectRepo subjectRepo;
+	@Autowired private EmployeeRepo employeerepo;
 
 	@Override
-	public List<SubjectData> getAllSubjectData() {
+	public List<Employee> getAllEmployeeData() {
 		
-		return subjectRepo.findAll();
+		return employeerepo.findAll();
 	}
 
 	@Override
-	public SubjectData createSubject(SubjectData subjectData) {
+	public Employee createEmployee(Employee employeedata) {
 		
-		return subjectRepo.save(subjectData);
+		return employeerepo.save(employeedata);
 	}
 
 	@Override
-	public SubjectData getSubjectByName(String subjectName) {
+	public Employee getEmployeeByName(String employeename) {
 		
-		return subjectRepo.findByName(subjectName);
+		return employeerepo.findByName(employeename);
 	}
 
 	
 
 	@Override
-	public SubjectData save(SubjectData subName) {
+	public Employee save(Employee subName) {
 		
-		return subjectRepo.save(subName);
+		return employeerepo.save(subName);
 	}
 
 }

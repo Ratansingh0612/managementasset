@@ -5,29 +5,31 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spring.crud.dao.StudentRepo;
-import com.spring.crud.entity.StudentData;
+import com.spring.crud.dao.CategoryRepo;
+
+import com.spring.crud.entity.Category;
+
 @Service
-public class StudentImpl implements Student {
+public class CategoryImpl implements CategoryService {
 	
-	@Autowired private StudentRepo studentRepo;
+	@Autowired private CategoryRepo categoryrepo;
 
 	@Override
-	public List<StudentData> getAllStudentData() {
+	public List<Category> getAllCategoryData() {
 	
-		return studentRepo.findAll();
+		return categoryrepo.findAll();
 	}
 
 	@Override
-	public StudentData createStudent(StudentData studentData) {
+	public Category createCategory(Category categorydata) {
 		
-		return studentRepo.save(studentData);
+		return categoryrepo.save(categorydata);
 	}
 
 	@Override
-	public StudentData getStudentById(int studentId) {
+	public Category getCategoryById(int cateid) {
 		
-		return studentRepo.findById(studentId).get();
+		return categoryrepo.findById(cateid).get();
 	}
 
 }

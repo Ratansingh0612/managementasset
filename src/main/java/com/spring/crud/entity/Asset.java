@@ -16,15 +16,15 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class TeacherData {
+public class Asset {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	
 	  @OneToMany(cascade = CascadeType.ALL)
-	  @JoinColumn(name = "subject_id" ,referencedColumnName = "id" )
-	  Set<SubjectData> enrollsubject=new HashSet<>();
+	  @JoinColumn(name = "employee_id" ,referencedColumnName = "id" )
+	  Set<Employee> enrollemployee=new HashSet<>();
 	 
 	
 	
@@ -33,12 +33,12 @@ public class TeacherData {
 	
 
 	
-	public Set<SubjectData> getEnrollsubject() {
-		return enrollsubject;
+	public Set<Employee> getEnrollemployee() {
+		return enrollemployee;
 	}
 
-	public void setEnrollsubject(Set<SubjectData> enrollsubject) {
-		this.enrollsubject = enrollsubject;
+	public void setEnrollsubject(Set<Employee> enrollemployee) {
+		this.enrollemployee = enrollemployee;
 	}
 
 	public int getId() {
@@ -57,6 +57,22 @@ public class TeacherData {
 		this.name = name;
 	}
 
+	private String purchaseDate;
+
+
+
+
+
+
+
+
+	public String getPurchaseDate() {
+		return purchaseDate;
+	}
+
+	public void setPurchaseDate(String purchaseDate) {
+		this.purchaseDate = purchaseDate;
+	}
 
 
 

@@ -5,30 +5,31 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spring.crud.dao.TeacherRepo;
-import com.spring.crud.entity.SubjectData;
-import com.spring.crud.entity.TeacherData;
+import com.spring.crud.dao.AssetRepo;
+
+import com.spring.crud.entity.Asset;
+
 @Service
-public class TeacherImpl implements Teacher {
+public class TeacherImpl implements AssetService {
 	
-	@Autowired private TeacherRepo teacherRepo;
+	@Autowired private AssetRepo assetRepo;
 
 	@Override
-	public List<TeacherData> getAllTeacherData() {
+	public List<Asset> getAllAssetData() {
 		
-		return teacherRepo.findAll();
+		return assetRepo.findAll();
 	}
 
 	@Override
-	public TeacherData createTeacher(TeacherData teacherData) {
+	public Asset createAsset(Asset assetdata) {
 		
-		return teacherRepo.save(teacherData);
+		return assetRepo.save(assetdata);
 	}
 
 	@Override
-	public TeacherData getTeacherById(int teacherId) {
+	public Asset getAssetById(int assetid) {
 		
-		return teacherRepo.findById(teacherId).get();
+		return assetRepo.findById(assetid).get();
 	}
 
 

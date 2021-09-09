@@ -17,36 +17,36 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class SubjectData {
+public class Employee  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
-	             name = "Student_enrolled",
-	             joinColumns=@JoinColumn(name = "student_id"),
-	             inverseJoinColumns =@JoinColumn(name="subject_id")
+	             name = "category_enrolled",
+	             joinColumns=@JoinColumn(name = "category_id"),
+	             inverseJoinColumns =@JoinColumn(name="employee_id")
 	)
-	private Set<StudentData> enrolledstudent=new HashSet<>();
+	private Set<Category> enrolledcategory=new HashSet<>();
 	
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "teacher_id" ,referencedColumnName = "id" ) 
+	 @JoinColumn(name = "Asset_id" ,referencedColumnName = "id" ) 
 	
-	private TeacherData teacherData;
-	
-	
+	private Asset asset;
 	
 	
 	
 	
 	
-	public Set<StudentData> getEnrolledstudent() {
-		return enrolledstudent;
+	
+	
+	public Set<Category> getEnrolledcategory() {
+		return enrolledcategory;
 	}
-	public void setEnrolledstudent(Set<StudentData> enrolledstudent) {
-		this.enrolledstudent = enrolledstudent;
+	public void setEnrolledstudent(Set<Category> enrolledcategory) {
+		this.enrolledcategory = enrolledcategory;
 	}
 	
 	public int getId() {
@@ -61,18 +61,18 @@ public class SubjectData {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void enrolledStudenttosubject(StudentData st) {
-		enrolledstudent.add(st);
+	public void enrolledcategorytoemployee(Category cate) {
+		enrolledcategory.add(cate);
 	}
 
-	public TeacherData getTeacherData() {       
-		return teacherData;
+	public Asset getasset() {       
+		return asset;
 	}
-	public void setTeacherData(TeacherData teacherData) {
-		this.teacherData = teacherData;
+	public void setAsset(Asset asset) {
+		this.asset = asset;
 	}
-	public void enrolledTeachertosubject(TeacherData teacherData) {
-		this.teacherData= teacherData;
+	public void enrolledAssettoemployee(Asset asset) {
+		this.asset= asset;
 			
 			
 		}

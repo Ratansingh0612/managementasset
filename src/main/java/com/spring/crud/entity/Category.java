@@ -12,23 +12,24 @@ import javax.persistence.ManyToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class StudentData {
+public class Category  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	
 	@JsonIgnore
-	@ManyToMany(mappedBy = "enrolledstudent")
-	private Set<SubjectData> enrolledsubj=new HashSet<>();
+	@ManyToMany(mappedBy = "enrolledcategory")
+	private Set<Employee> enrollEmp=new HashSet<>();
 	
-	public Set<SubjectData> getEnrolledsubj() {
-		return enrolledsubj;
-	}
-	public void setEnrolledsubj(Set<SubjectData> enrolledsubj) {
-		this.enrolledsubj = enrolledsubj;
-	}
 	
+	
+	public Set<Employee> getEnrollEmp() {
+		return enrollEmp;
+	}
+	public void setEnrollEmp(Set<Employee> enrollEmp) {
+		this.enrollEmp = enrollEmp;
+	}
 	public int getId() {
 		return id;
 	}

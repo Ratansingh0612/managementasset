@@ -11,19 +11,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.crud.entity.StudentData;
-import com.spring.crud.entity.SubjectData;
-import com.spring.crud.service.Student;
-import com.spring.crud.service.Subject;
-import com.spring.crud.service.Teacher;
+import com.spring.crud.entity.Category;
+import com.spring.crud.service.CategoryService;
 
 @RestController
-@RequestMapping("/student")
-public class StudentController {
+@RequestMapping("/category")
+public class CategoryController {
 	
 	
 
-	@Autowired private Student student;
+	@Autowired private CategoryService categoryservice;
 
 	
 	
@@ -36,30 +33,30 @@ public class StudentController {
 	}
 	
 	
-	@GetMapping("/allStudent")
-	List<StudentData> getAllStudent() {
+	@GetMapping("/allcategory")
+	List<Category> getAllCategory() {
 		
-		return student.getAllStudentData();
-		
-	}
-	
-	
-	
-	
-	@PostMapping("/addStudent")
- 	StudentData addStudent(@RequestBody StudentData st) {
-		return student.createStudent(st);
+		return categoryservice.getAllCategoryData();
 		
 	}
 	
 	
 	
 	
-	@GetMapping("/getByStudentId/{id}")
-	StudentData getById(@PathVariable ("id") int studeenetId) {
-		StudentData studentid=new StudentData();
-		studentid=student.getStudentById(studeenetId);
-		return studentid;
+	@PostMapping("/addcategory")
+ 	Category addCategory(@RequestBody Category cat) {
+		return categoryservice.createCategory(cat);
+		
+	}
+	
+	
+	
+	
+	@GetMapping("/getByCategoryId/{id}")
+	Category getById(@PathVariable ("id") int cateid) {
+		Category categoryid=new Category();
+		categoryid=categoryservice.getCategoryById(cateid);
+		return categoryid;
 		
 	}
 	
